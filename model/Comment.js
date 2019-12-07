@@ -38,6 +38,14 @@ const CommentSchema = new Schema({
 }, {versionKey: false});
 // 创建分类集合
 const Comment = mongoose.model('Comment', CommentSchema);
+	// Comment.create({
+	// 	content:'内容很精彩',
+	// 	author:'5deb44d393d7545e090dd9f4',
+	// 	post:'5deb451193d7545e090dd9f5'
+	// }).then(x=>{
+	// 	console.log('评论插入成功');
+		
+	// })
 
 // 文章分类格式校验（路由级别）
 const validateComment = comment => {
