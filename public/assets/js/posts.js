@@ -52,7 +52,7 @@ $('#filterForm').on('submit', function () {
 		url: '/posts',
 		data: formData,
 		success: function (data) {
-			console.log(data);
+			// console.log(data);
 			var html = template('postsTpl', data);
 			$('#postsBox').html(html);
 			var page = template('pageTpl', data);
@@ -62,3 +62,16 @@ $('#filterForm').on('submit', function () {
 	
 	return false;
 });
+
+$('#postsBox').on('click','.delete',function(){
+	//获取id
+	var id = $(this).attr('data-id');
+	$.ajax({
+		type:'delete',
+		url:'/posts/'+id,
+		success:function(data){
+			// console.log(data);
+			location.reload()
+		}
+	})
+})
