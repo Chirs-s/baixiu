@@ -39,4 +39,19 @@ $('#settingForm').on('submit',function(){
         }
     });
     return false;
+});
+
+//显示网站设置数据
+$.ajax({
+    type:'get',
+    ul:'/settings',
+    success:function(data){
+        if(data){
+           $('#hiddenLogo').val(data.logo)
+           $('#settingImg').attr('src',data.logo)
+           $('input[name="title"]').val(data.title);
+           $('input[name="comment"]').prop('checked', data.comment)
+           $('input[name="review"]').prop('checked', data.review)
+        }
+    }
 })
